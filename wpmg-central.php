@@ -5,6 +5,9 @@
  * Author: Simon Kraft (wpFRA.de)
  * Version: 0.1
  * Author URI: https://krafit.de
+ * Text Domain: wpmg_central
+ * Domain Path: languages
+ *
  */
 
 
@@ -57,7 +60,7 @@ add_action( 'init', 'wpmg_meetup', 0 );
 
 
 // Register Custom Taxonomy
-function meetup_status() {
+function wpmg_meetup_status() {
 
 	$labels = array(
 		'name'                       => _x( 'Meetup status', 'Taxonomy General Name', 'wpmg_central' ),
@@ -92,8 +95,17 @@ function meetup_status() {
 }
 
 // Hook into the 'init' action
-add_action( 'init', 'meetup_status', 0 );
+add_action( 'init', 'wpmg_meetup_status', 0 );
 
+/**
+ * Load Textdomain
+ *
+ * @since	0.1
+ */
+function wpmg_load_translations() {
+	load_plugin_textdomain( 'wpmg_central', false, apply_filters ( 'wpmg_central_translationpath', dirname( plugin_basename( __FILE__ )) . '/languages/' ) );
+}
 
-
+// Hook into 'plugins_loaded' action
+add_action( 'plugins_loaded', 'wpmg_load_translations' );
 
