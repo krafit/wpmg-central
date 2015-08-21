@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WP Meetups Germany - Central\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Fri Aug 21 2015 00:55:38 GMT+0200 (CEST)\n"
-"POT-Revision-Date: Fri Aug 21 2015 00:55:47 GMT+0200 (CEST)\n"
+"POT-Revision-Date: Fri Aug 21 2015 11:51:40 GMT+0200 (CEST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,130 +24,178 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: /wpmg-central.php:18
+#: ../wpmg-central.php:22
 msgctxt "Post Type General Name"
 msgid "Meetups"
 msgstr ""
 
-#: /wpmg-central.php:19
+#: ../wpmg-central.php:23
 msgctxt "Post Type Singular Name"
 msgid "Meetup"
 msgstr ""
 
-#: /wpmg-central.php:20
+#: ../wpmg-central.php:24
 msgid "Meetups"
 msgstr ""
 
-#: /wpmg-central.php:21
+#: ../wpmg-central.php:25
 msgid "Meetup"
 msgstr ""
 
-#: /wpmg-central.php:22
+#: ../wpmg-central.php:26
 msgid "Parent Meetup"
 msgstr ""
 
-#: /wpmg-central.php:23
+#: ../wpmg-central.php:27
 msgid "All Meetups"
 msgstr ""
 
-#: /wpmg-central.php:24
+#: ../wpmg-central.php:28
 msgid "Add new Meetup"
 msgstr ""
 
-#: /wpmg-central.php:25
+#: ../wpmg-central.php:29
 msgid "Add new"
 msgstr ""
 
-#: /wpmg-central.php:26
+#: ../wpmg-central.php:30
 msgid "New Meetup"
 msgstr ""
 
-#: /wpmg-central.php:27
+#: ../wpmg-central.php:31
 msgid "Edit Meetup"
 msgstr ""
 
-#: /wpmg-central.php:28
+#: ../wpmg-central.php:32
 msgid "Update Meetup"
 msgstr ""
 
-#: /wpmg-central.php:29
+#: ../wpmg-central.php:33
 msgid "View Meetup"
 msgstr ""
 
-#: /wpmg-central.php:30
+#: ../wpmg-central.php:34
 msgid "Search Meetup"
 msgstr ""
 
-#: /wpmg-central.php:31 /wpmg-central.php:82
+#: ../wpmg-central.php:35 ../wpmg-central.php:92
 msgid "Not found"
 msgstr ""
 
-#: /wpmg-central.php:32
+#: ../wpmg-central.php:36
 msgid "Not found in trash"
 msgstr ""
 
-#: /wpmg-central.php:35
+#: ../wpmg-central.php:39
 msgid "single_meetup"
 msgstr ""
 
-#: /wpmg-central.php:36
+#: ../wpmg-central.php:40
 msgid "Meetup Groups"
 msgstr ""
 
-#: /wpmg-central.php:66
+#: ../wpmg-central.php:76
 msgctxt "Taxonomy General Name"
 msgid "Meetup status"
 msgstr ""
 
-#: /wpmg-central.php:67
+#: ../wpmg-central.php:77
 msgctxt "Taxonomy Singular Name"
 msgid "Meetup status"
 msgstr ""
 
-#: /wpmg-central.php:68 /wpmg-central.php:69
+#: ../wpmg-central.php:78 ../wpmg-central.php:79
 msgid "Status"
 msgstr ""
 
-#: /wpmg-central.php:70 /wpmg-central.php:71
+#: ../wpmg-central.php:80 ../wpmg-central.php:81
 msgid "Parent status"
 msgstr ""
 
-#: /wpmg-central.php:72
+#: ../wpmg-central.php:82
 msgid "New status"
 msgstr ""
 
-#: /wpmg-central.php:73
+#: ../wpmg-central.php:83
 msgid "Add new status"
 msgstr ""
 
-#: /wpmg-central.php:74
+#: ../wpmg-central.php:84
 msgid "Edit status"
 msgstr ""
 
-#: /wpmg-central.php:75
+#: ../wpmg-central.php:85
 msgid "Update status"
 msgstr ""
 
-#: /wpmg-central.php:76
+#: ../wpmg-central.php:86
 msgid "View status"
 msgstr ""
 
-#: /wpmg-central.php:77
+#: ../wpmg-central.php:87
 msgid "Separate items with commas"
 msgstr ""
 
-#: /wpmg-central.php:78
+#: ../wpmg-central.php:88
 msgid "Add or remove status"
 msgstr ""
 
-#: /wpmg-central.php:79
+#: ../wpmg-central.php:89
 msgid "Most used"
 msgstr ""
 
-#: /wpmg-central.php:80
+#: ../wpmg-central.php:90
 msgid "Popular"
 msgstr ""
 
-#: /wpmg-central.php:81
+#: ../wpmg-central.php:91
 msgid "Search status"
+msgstr ""
+
+#: ../wpmg-central.php:135
+msgid "Meetup Metadata"
+msgstr ""
+
+#: ../wpmg-central.php:186
+msgid "Twitter URL"
+msgstr ""
+
+#: ../wpmg-central.php:193
+msgid "Facebook URL"
+msgstr ""
+
+#: ../wpmg-central.php:200
+msgid "Google+ URL"
+msgstr ""
+
+#: ../wpmg-central.php:207
+msgid "Meetup.com URL"
+msgstr ""
+
+#: ../wpmg-central.php:214
+msgid "Slack (channel on dewp.slack.com or slack team URL)"
+msgstr ""
+
+#: ../wpmg-central.php:221
+msgid "Xing URL"
+msgstr ""
+
+#: ../wpmg-central.php:228
+msgid "WordPress.TV URL"
+msgstr ""
+
+#: ../wpmg-central.php:235
+msgid "Meetup Homepage URL"
+msgstr ""
+
+#: ../wpmg-central.php:242
+msgid "Contact EMail"
+msgstr ""
+
+#: ../wpmg-central.php:249
+msgid "Mailiglist URL"
+msgstr ""
+
+#: ../wpmg-central.php:256
+msgid "Rotation"
 msgstr ""
