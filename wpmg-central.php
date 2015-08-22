@@ -7,6 +7,8 @@
  * Author URI: https://krafit.de
  * Text Domain: wpmg_central
  * Domain Path: languages
+ * GitHub Plugin URI: https://github.com/wpFRA/wpmg-central
+ * GitHub Branch: master
  *
  */
 
