@@ -184,92 +184,111 @@ function wpmg_meta_box_callback( $post ) {
 
 
 	// twitter
+    echo '<div class="wpmg wpmg-twitter">';
 	echo '<label for="wpmg_twitter">';
+    echo '<span class="dashicons dashicons-twitter"></span> ';
 	_e( 'Twitter URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_twitter" name="wpmg_twitter" value="' . esc_attr( $wpmg_twitter ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// facebook
+    echo '<div class="wpmg wpmg-facebook">';
 	echo '<label for="wpmg_facebook">';
+    echo '<span class="dashicons dashicons-facebook"></span> ';
 	_e( 'Facebook URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_facebook" name="wpmg_facebook" value="' . esc_attr( $wpmg_facebook ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// gplus
+    echo '<div class="wpmg wpmg-gplus">';
 	echo '<label for="wpmg_gplus">';
+    echo '<span class="dashicons dashicons-googleplus"></span> ';
 	_e( 'Google+ URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_gplus" name="wpmg_gplus" value="' . esc_attr( $wpmg_gplus ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// meetupcom
+    echo '<div class="wpmg wpmg-meetupcom">';
 	echo '<label for="wpmg_meetupcom">';
+    echo '<span class="dashicons dashicons-nametag"></span> ';
 	_e( 'Meetup.com URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_meetupcom" name="wpmg_meetupcom" value="' . esc_attr( $wpmg_meetupcom ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// slack
+    echo '<div class="wpmg wpmg-slack">';
 	echo '<label for="wpmg_slack">';
 	_e( 'Slack (channel on dewp.slack.com or slack team URL)', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_slack" name="wpmg_slack" value="' . esc_attr( $wpmg_slack ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// xing
+    echo '<div class="wpmg wpmg-xing">';
 	echo '<label for="wpmg_xing">';
 	_e( 'Xing URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_xing" name="wpmg_xing" value="' . esc_attr( $wpmg_xing ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// wptv
+    echo '<div class="wpmg wpmg-wptv">';
 	echo '<label for="wpmg_wptv">';
+    echo '<span class="dashicons dashicons-format-video"></span> ';
 	_e( 'WordPress.TV URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_wptv" name="wpmg_wptv" value="' . esc_attr( $wpmg_wptv ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// home
+    echo '<div class="wpmg wpmg-home">';
 	echo '<label for="wpmg_home">';
+    echo '<span class="dashicons dashicons-wordpress"></span> ';
 	_e( 'Meetup Homepage URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_home" name="wpmg_home" value="' . esc_attr( $wpmg_home ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// mail
+    echo '<div class="wpmg wpmg-mail">';
 	echo '<label for="wpmg_mail">';
+    echo '<span class="dashicons dashicons-email"></span> ';
 	_e( 'Contact EMail', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_mail" name="wpmg_mail" value="' . esc_attr( $wpmg_mail ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// mailinglist
+    echo '<div class="wpmg wpmg-mailinglist">';
 	echo '<label for="wpmg_mailinglist">';
+    echo '<span class="dashicons dashicons-megaphone"></span> ';
 	_e( 'Mailiglist URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_mailinglist" name="wpmg_mailinglist" value="' . esc_attr( $wpmg_mailinglist ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 
 	// rotation
+    echo '<div class="wpmg wpmg-rotation">';
 	echo '<label for="wpmg_rotation">';
 	_e( 'Rotation', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_rotation" name="wpmg_rotation" value="' . esc_attr( $wpmg_rotation ) . '" size="25" />';
-	echo '<br/>';
+	echo '</div>';
 }
 
 
@@ -360,3 +379,14 @@ function wpmg_uninstall() {
 }
 
 register_uninstall_hook( __FILE__,  'wpmg_uninstall' );
+
+/**
+ *
+ */
+function wpmg_custom_styles() {
+
+    wp_register_style( 'wpmg_style', plugins_url( 'css/wpmg-admin.css', __FILE__ ), false, false );
+    wp_enqueue_style( 'wpmg_style' );
+
+}
+add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles' );
