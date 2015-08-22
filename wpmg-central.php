@@ -344,3 +344,17 @@ function wpmg_save_meta_box_data( $post_id ) {
 
 add_action( 'save_post', 'wpmg_save_meta_box_data' );
 
+/**
+ * Delete plugindata after plugin deinstall
+ *
+ * @since   0.1
+ * @todo    delete taxonomie
+ */
+function wpmg_uninstall() {
+    global $wpdb;
+    $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key like 'wpmg_%';" );
+    $wpdb->query( "DELETE FROM $wpdb->posts WHERE post_type = 'meetup';" );
+
+}
+
+register_uninstall_hook( __FILE__,  'wpmg_uninstall' );
