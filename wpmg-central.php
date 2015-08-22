@@ -100,7 +100,7 @@ function wpmg_meetup_status() {
 		'show_in_nav_menus'          => false,
 		'show_tagcloud'              => false,
 	);
-	register_taxonomy( 'meetup_status', array( 'single_meetup' ), $args );
+	register_taxonomy( 'meetup_status', array( 'meetup' ), $args );
 
 }
 
