@@ -292,6 +292,7 @@ function wpmg_meta_box_callback( $post ) {
 }
 
 
+
 /**
  * @param 	$post_id
  * @since	0.1
@@ -369,10 +370,14 @@ add_action( 'save_post', 'wpmg_save_meta_box_data' );
  * Delete plugindata after plugin deinstall
  *
  * @since   0.1
- * @todo    delete taxonomie
  */
 function wpmg_uninstall() {
     global $wpdb;
+    $terms = get_terms( 'meetup_status', array( 'fields' => 'ids', 'hide_empty' => false ) );
+    foreach ( $terms as $value ) {
+        wp_delete_term( $value, 'meetup_status' );
+    }
+
     $wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key like 'wpmg_%';" );
     $wpdb->query( "DELETE FROM $wpdb->posts WHERE post_type = 'meetup';" );
 
@@ -381,7 +386,9 @@ function wpmg_uninstall() {
 register_uninstall_hook( __FILE__,  'wpmg_uninstall' );
 
 /**
+ * Register admin styles
  *
+ * @since   0.1
  */
 function wpmg_custom_styles() {
 
@@ -389,4 +396,5 @@ function wpmg_custom_styles() {
     wp_enqueue_style( 'wpmg_style' );
 
 }
+
 add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles' );
