@@ -41,7 +41,7 @@ function wpmg_meetup() {
 		'label'               => __( 'single_meetup', 'wpmg_central' ),
 		'description'         => __( 'Meetup Groups', 'wpmg_central' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', ),
 		'taxonomies'          => array( 'meetup_status' ),
 		'hierarchical'        => true,
 		'public'              => true,
@@ -93,14 +93,21 @@ function wpmg_meetup_status() {
 		'search_items'               => __( 'Search status', 'wpmg_central' ),
 		'not_found'                  => __( 'Not found', 'wpmg_central' ),
 	);
+	$capabilities = array(
+		'manage_terms'               => 'wpmg_manage_status',
+		'edit_terms'                 => 'wpmg_edit_status',
+		'delete_terms'               => 'wpmg_delete_status',
+		'assign_terms'               => 'edit_posts',
+	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => false,
 		'show_tagcloud'              => false,
+		'capabilities'               => $capabilities,
 	);
 	register_taxonomy( 'meetup_status', array( 'meetup' ), $args );
 
