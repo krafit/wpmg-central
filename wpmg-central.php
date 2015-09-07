@@ -226,6 +226,7 @@ function wpmg_meta_box_callback( $post ) {
 	// slack
     echo '<div class="wpmg wpmg-slack">';
 	echo '<label for="wpmg_slack">';
+    echo '<span class="dashicons dashicons-hammer"></span> ';
 	_e( 'Slack (channel on dewp.slack.com or slack team URL)', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
@@ -235,6 +236,7 @@ function wpmg_meta_box_callback( $post ) {
 	// xing
     echo '<div class="wpmg wpmg-xing">';
 	echo '<label for="wpmg_xing">';
+    echo '<span class="dashicons dashicons-hammer"></span> ';
 	_e( 'Xing URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
@@ -284,6 +286,7 @@ function wpmg_meta_box_callback( $post ) {
 	// rotation
     echo '<div class="wpmg wpmg-rotation">';
 	echo '<label for="wpmg_rotation">';
+    echo '<span class="dashicons dashicons-calendar-alt"></span> ';
 	_e( 'Rotation', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
