@@ -398,3 +398,14 @@ function wpmg_custom_styles() {
 }
 
 add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles' );
+
+
+/**
+ * Remove aditional category, if the Radio Buttons for Taxonomies Plugin is active
+ * 
+ * @link https://wordpress.org/plugins/radio-buttons-for-taxonomies/faq/
+ * @since   0.1
+ */
+if (class_exists('Radio_Buttons_for_Taxonomies')) {
+	add_filter( "radio-buttons-for-taxonomies-no-term-meetup_status", "__return_FALSE" );
+}
