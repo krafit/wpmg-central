@@ -41,7 +41,7 @@ function wpmg_meetup() {
 		'label'               => __( 'single_meetup', 'wpmg_central' ),
 		'description'         => __( 'Meetup Groups', 'wpmg_central' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt' ),
 		'taxonomies'          => array( 'meetup_status' ),
 		'hierarchical'        => true,
 		'public'              => true,
