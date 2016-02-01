@@ -3,7 +3,7 @@
  * Plugin Name: WP Meetups Germany - Central
  * Description: Zetrales WP Meetup Verzeichnis.
  * Author: Simon Kraft (wpFRA.de)
- * Version: 0.1
+ * Version: 0.1.1
  * Author URI: https://krafit.de
  * Text Domain: wpmg_central
  * Domain Path: languages
@@ -177,18 +177,69 @@ function wpmg_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	$wpmg_twitter 		= get_post_meta( $post->ID, 'wpmg_twitter', true );
-	$wpmg_facebook 		= get_post_meta( $post->ID, 'wpmg_facebook', true );
-	$wpmg_gplus			= get_post_meta( $post->ID, 'wpmg_gplus', true );
-	$wpmg_meetupcom 	= get_post_meta( $post->ID, 'wpmg_meetupcom', true );
-	$wpmg_slack 		= get_post_meta( $post->ID, 'wpmg_slack', true );
-	$wpmg_xing 			= get_post_meta( $post->ID, 'wpmg_xing', true );
-	$wpmg_wptv 			= get_post_meta( $post->ID, 'wpmg_wptv', true );
+	
 	$wpmg_home 			= get_post_meta( $post->ID, 'wpmg_home', true );
 	$wpmg_mail 			= get_post_meta( $post->ID, 'wpmg_mail', true );
 	$wpmg_mailinglist 	= get_post_meta( $post->ID, 'wpmg_mailinglist', true );
+	$wpmg_meetupcom 	= get_post_meta( $post->ID, 'wpmg_meetupcom', true );
+	$wpmg_wptv 			= get_post_meta( $post->ID, 'wpmg_wptv', true );
+	$wpmg_twitter 		= get_post_meta( $post->ID, 'wpmg_twitter', true );
+	$wpmg_facebook 		= get_post_meta( $post->ID, 'wpmg_facebook', true );
+	$wpmg_gplus			= get_post_meta( $post->ID, 'wpmg_gplus', true );
+	$wpmg_slack 		= get_post_meta( $post->ID, 'wpmg_slack', true );
+	$wpmg_xing 			= get_post_meta( $post->ID, 'wpmg_xing', true );
 	$wpmg_rotation 		= get_post_meta( $post->ID, 'wpmg_rotation', true );
 
+
+	// home
+    echo '<div class="wpmg wpmg-home">';
+	echo '<label for="wpmg_home">';
+    echo '<span class="dashicons dashicons-wordpress"></span> ';
+	_e( 'Meetup Homepage URL', 'wpmg_central' );
+	echo '</label> ';
+    echo '<br/>';
+	echo '<input type="text" id="wpmg_home" name="wpmg_home" value="' . esc_attr( $wpmg_home ) . '" size="25" />';
+	echo '</div>';
+
+	// mail
+    echo '<div class="wpmg wpmg-mail">';
+	echo '<label for="wpmg_mail">';
+    echo '<span class="dashicons dashicons-email"></span> ';
+	_e( 'Contact EMail', 'wpmg_central' );
+	echo '</label> ';
+    echo '<br/>';
+	echo '<input type="text" id="wpmg_mail" name="wpmg_mail" value="' . esc_attr( $wpmg_mail ) . '" size="25" />';
+	echo '</div>';
+
+	// mailinglist
+    echo '<div class="wpmg wpmg-mailinglist">';
+	echo '<label for="wpmg_mailinglist">';
+    echo '<span class="dashicons dashicons-megaphone"></span> ';
+	_e( 'Mailiglist URL', 'wpmg_central' );
+	echo '</label> ';
+    echo '<br/>';
+	echo '<input type="text" id="wpmg_mailinglist" name="wpmg_mailinglist" value="' . esc_attr( $wpmg_mailinglist ) . '" size="25" />';
+	echo '</div>';
+
+	// meetupcom
+    echo '<div class="wpmg wpmg-meetupcom">';
+	echo '<label for="wpmg_meetupcom">';
+    echo '<span class="dashicons dashicons-nametag"></span> ';
+	_e( 'Meetup.com URL', 'wpmg_central' );
+	echo '</label> ';
+    echo '<br/>';
+	echo '<input type="text" id="wpmg_meetupcom" name="wpmg_meetupcom" value="' . esc_attr( $wpmg_meetupcom ) . '" size="25" />';
+	echo '</div>';
+
+	// wptv
+    echo '<div class="wpmg wpmg-wptv">';
+	echo '<label for="wpmg_wptv">';
+    echo '<span class="dashicons dashicons-format-video"></span> ';
+	_e( 'WordPress.TV URL', 'wpmg_central' );
+	echo '</label> ';
+    echo '<br/>';
+	echo '<input type="text" id="wpmg_wptv" name="wpmg_wptv" value="' . esc_attr( $wpmg_wptv ) . '" size="25" />';
+	echo '</div>';
 
 	// twitter
     echo '<div class="wpmg wpmg-twitter">';
@@ -220,20 +271,10 @@ function wpmg_meta_box_callback( $post ) {
 	echo '<input type="text" id="wpmg_gplus" name="wpmg_gplus" value="' . esc_attr( $wpmg_gplus ) . '" size="25" />';
 	echo '</div>';
 
-	// meetupcom
-    echo '<div class="wpmg wpmg-meetupcom">';
-	echo '<label for="wpmg_meetupcom">';
-    echo '<span class="dashicons dashicons-nametag"></span> ';
-	_e( 'Meetup.com URL', 'wpmg_central' );
-	echo '</label> ';
-    echo '<br/>';
-	echo '<input type="text" id="wpmg_meetupcom" name="wpmg_meetupcom" value="' . esc_attr( $wpmg_meetupcom ) . '" size="25" />';
-	echo '</div>';
-
 	// slack
     echo '<div class="wpmg wpmg-slack">';
 	echo '<label for="wpmg_slack">';
-    echo '<span class="dashicons dashicons-hammer"></span> ';
+    echo '<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0ic3ZnMiIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxN3B4IiB2aWV3Qm94PSIyNjcuMDY5IDcyLjA3NSAxNyAxNyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAyNjcuMDY5IDcyLjA3NSAxNyAxNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGcgaWQ9ImcxMiIgdHJhbnNmb3JtPSJzY2FsZSgwLjEsMC4xKSI+PHBhdGggaWQ9InBhdGgyNCIgZmlsbD0iIzQ0NDQ0NCIgZD0iTTI3NDAuODEsNzk4LjMzN2w3LjEwNCwyMS4yMTFsMjIuMDQxLTcuMzczbC03LjEwOS0yMS4yMTZMMjc0MC44MSw3OTguMzM3Ii8+PHBhdGggaWQ9InBhdGgyNiIgZmlsbD0iIzQ0NDQ0NCIgZD0iTTI3NDAuODEsNzk4LjMzN2w3LjEwNCwyMS4yMTFsMjIuMDQxLTcuMzczbC03LjEwOS0yMS4yMTZMMjc0MC44MSw3OTguMzM3Ii8+PHBhdGggaWQ9InBhdGgyOCIgZmlsbD0iIzQ0NDQ0NCIgZD0iTTI4MDIuMjgsODE5LjM3MmwtMTAuNjkzLDMuNTg0bDMuNzExLDExLjA1NWMxLjUwNCw0LjQ3My0wLjkxOCw5LjMxNi01LjM5MSwxMC44MmMtMC45NzcsMC4zMjItMS45NzMsMC40NjktMi45MzksMC40NDljLTMuNDg2LTAuMDk4LTYuNzA5LTIuMzQ0LTcuODgxLTUuODRsLTMuNzA2LTExLjA1NWwtMjIuMDM2LDcuMzgzbDMuNzA2LDExLjA1NWMxLjQ5OSw0LjQ3My0wLjkxOCw5LjMxNi01LjM5MSwxMC44MmMtMC45NzcsMC4zMjItMS45NjgsMC40NjktMi45NDQsMC40MzljLTMuNDg2LTAuMDg4LTYuNzA0LTIuMzI0LTcuODgxLTUuODRsLTMuNzAxLTExLjA0NWwtMTAuNjg4LDMuNTc0Yy0wLjk3NywwLjMyMi0xLjk2MywwLjQ2OS0yLjkzOSwwLjQ0OWMtMy40ODYtMC4wOTgtNi43MDktMi4zMzQtNy44ODEtNS44NGMtMS41MDQtNC40OTIsMC45MTMtOS4zMjYsNS4zOTYtMTAuODNsMTAuNjc5LTMuNTc0bC03LjEtMjEuMjExbC0xMC42ODgsMy41ODRjLTAuOTcyLDAuMzIyLTEuOTYzLDAuNDU5LTIuOTM1LDAuNDM5Yy0zLjQ5MS0wLjA4OC02LjcxNC0yLjMzNC03Ljg4Ni01LjgzYy0xLjQ5OS00LjQ4MiwwLjkxOC05LjMyNiw1LjM5MS0xMC44MjVsMTAuNjg0LTMuNTg0bC0zLjcwMS0xMS4wNTVjLTEuNDk5LTQuNDc4LDAuOTEzLTkuMzIxLDUuMzk2LTEwLjgyNWM0LjQ3OC0xLjQ5NCw5LjMxNiwwLjkxOCwxMC44MTUsNS4zOTZsMy43MDYsMTEuMDZsMjIuMDM2LTcuMzc4bC0zLjcwNi0xMS4wNTVjLTEuNDk5LTQuNDgyLDAuOTE4LTkuMzMxLDUuMzkxLTEwLjgyNWM0LjQ3OC0xLjUwNCw5LjMyMSwwLjkwOCwxMC44Myw1LjM4NmwzLjY5NiwxMS4wNmwxMC42OTMtMy41NzRjNC40NzMtMS41MDQsOS4zMTYsMC45MTMsMTAuODIsNS4zOTFjMS41MDQsNC40NzMtMC45MTgsOS4zMTYtNS4zOTEsMTAuODJsLTEwLjY5MywzLjU3OWw3LjEwOSwyMS4yMTZsMTAuNjg0LTMuNTg0YzQuNDczLTEuNDk0LDkuMzE2LDAuOTE4LDEwLjgyLDUuMzkxUzI4MDYuNzUzLDgxNy44NjksMjgwMi4yOCw4MTkuMzcyTDI4MDIuMjgsODE5LjM3MnogTTI4MzAuOTQyLDc4Mi41OGMtMTcuMDAyLTU2LjY3LTQxLjU2Mi02OS44ODgtOTguMjMyLTUyLjg5MWMtNTYuNjcsMTcuMDA3LTY5Ljg5Myw0MS41NjItNTIuODkxLDk4LjIyOGMxNy4wMDcsNTYuNjcsNDEuNTU4LDY5LjkwMiw5OC4yMzIsNTIuOUMyODM0LjcyMSw4NjMuODE2LDI4NDcuOTU0LDgzOS4yNTUsMjgzMC45NDIsNzgyLjU4Ii8+PC9nPjwvc3ZnPg=="> ';
 	_e( 'Slack (channel on dewp.slack.com or slack team URL)', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
@@ -243,51 +284,11 @@ function wpmg_meta_box_callback( $post ) {
 	// xing
     echo '<div class="wpmg wpmg-xing">';
 	echo '<label for="wpmg_xing">';
-    echo '<span class="dashicons dashicons-hammer"></span> ';
+    echo '<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0ic3ZnMiIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxN3B4IiB2aWV3Qm94PSIyNjcuMDY5IDcyLjA3NSAxNyAxNyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAyNjcuMDY5IDcyLjA3NSAxNyAxNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZmlsbD0iIzQ0NDQ0NCIgZD0iTTI2OS44NDEsNzUuNTk2Yy0wLjE0MywwLTAuMjYzLDAuMDUtMC4zMjQsMC4xNDhjLTAuMDYyLDAuMTAyLTAuMDUzLDAuMjMyLDAuMDEzLDAuMzY0bDEuNjA1LDIuNzc4YzAuMDAzLDAuMDA1LDAuMDAzLDAuMDA5LDAsMC4wMTRsLTIuNTIyLDQuNDUxYy0wLjA2NiwwLjEzMS0wLjA2MywwLjI2MiwwLDAuMzYzYzAuMDYxLDAuMDk4LDAuMTY3LDAuMTYyLDAuMzEsMC4xNjJoMi4zNzRjMC4zNTUsMCwwLjUyNi0wLjIzOSwwLjY0Ny0wLjQ1OGMwLDAsMi40NjYtNC4zNjMsMi41NjItNC41MzJjLTAuMDA5LTAuMDE2LTEuNjMyLTIuODQ2LTEuNjMyLTIuODQ2Yy0wLjExOS0wLjIxLTAuMjk2LTAuNDQ1LTAuNjYxLTAuNDQ1SDI2OS44NDF6Ii8+PHBhdGggaWQ9InBhdGgxOTM3NSIgZmlsbD0iIzQ0NDQ0NCIgZD0iTTI3OS44MTMsNzIuMzQ2Yy0wLjM1NCwwLTAuNTA4LDAuMjI0LTAuNjM2LDAuNDUyYzAsMC01LjExMyw5LjA2OC01LjI4Miw5LjM2OGMwLjAwOSwwLjAxNiwzLjM3Myw2LjE4NywzLjM3Myw2LjE4N2MwLjExOCwwLjIxLDAuMywwLjQ1MiwwLjY2NCwwLjQ1MmgyLjM3YzAuMTQzLDAsMC4yNTUtMC4wNTQsMC4zMTUtMC4xNTFjMC4wNjItMC4xMDEsMC4wNjItMC4yMzUtMC4wMDUtMC4zNjZsLTMuMzQ2LTYuMTE0Yy0wLjAwMy0wLjAwNS0wLjAwMy0wLjAxMSwwLTAuMDE3bDUuMjU1LTkuMjkyYzAuMDY2LTAuMTMxLDAuMDY3LTAuMjY1LDAuMDA0LTAuMzY2Yy0wLjA1OS0wLjA5OC0wLjE3Mi0wLjE1Mi0wLjMxNC0wLjE1MkgyNzkuODEzeiIvPjwvc3ZnPg=="> ';
 	_e( 'Xing URL', 'wpmg_central' );
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_xing" name="wpmg_xing" value="' . esc_attr( $wpmg_xing ) . '" size="25" />';
-	echo '</div>';
-
-	// wptv
-    echo '<div class="wpmg wpmg-wptv">';
-	echo '<label for="wpmg_wptv">';
-    echo '<span class="dashicons dashicons-format-video"></span> ';
-	_e( 'WordPress.TV URL', 'wpmg_central' );
-	echo '</label> ';
-    echo '<br/>';
-	echo '<input type="text" id="wpmg_wptv" name="wpmg_wptv" value="' . esc_attr( $wpmg_wptv ) . '" size="25" />';
-	echo '</div>';
-
-	// home
-    echo '<div class="wpmg wpmg-home">';
-	echo '<label for="wpmg_home">';
-    echo '<span class="dashicons dashicons-wordpress"></span> ';
-	_e( 'Meetup Homepage URL', 'wpmg_central' );
-	echo '</label> ';
-    echo '<br/>';
-	echo '<input type="text" id="wpmg_home" name="wpmg_home" value="' . esc_attr( $wpmg_home ) . '" size="25" />';
-	echo '</div>';
-
-	// mail
-    echo '<div class="wpmg wpmg-mail">';
-	echo '<label for="wpmg_mail">';
-    echo '<span class="dashicons dashicons-email"></span> ';
-	_e( 'Contact EMail', 'wpmg_central' );
-	echo '</label> ';
-    echo '<br/>';
-	echo '<input type="text" id="wpmg_mail" name="wpmg_mail" value="' . esc_attr( $wpmg_mail ) . '" size="25" />';
-	echo '</div>';
-
-	// mailinglist
-    echo '<div class="wpmg wpmg-mailinglist">';
-	echo '<label for="wpmg_mailinglist">';
-    echo '<span class="dashicons dashicons-megaphone"></span> ';
-	_e( 'Mailiglist URL', 'wpmg_central' );
-	echo '</label> ';
-    echo '<br/>';
-	echo '<input type="text" id="wpmg_mailinglist" name="wpmg_mailinglist" value="' . esc_attr( $wpmg_mailinglist ) . '" size="25" />';
 	echo '</div>';
 
 	// rotation
@@ -434,3 +435,5 @@ add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles' );
 if (class_exists('Radio_Buttons_for_Taxonomies')) {
 	add_filter( "radio-buttons-for-taxonomies-no-term-meetup_status", "__return_FALSE" );
 }
+
+
