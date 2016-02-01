@@ -395,6 +395,21 @@ function wpmg_uninstall() {
 
 register_uninstall_hook( __FILE__,  'wpmg_uninstall' );
 
+
+function wpmg_meetup_query( $query ){
+    if( ! is_admin()
+        && $query->is_post_type_archive( 'meetup' )
+        && $query->is_main_query() ){
+            $query->set( 'posts_per_page', 25 );
+	        $query->set( 'orderby', 'title' );
+	        $query->set( 'order', 'ASC' );
+    }
+}
+add_action( 'pre_get_posts', 'wpmg_meetup_query' );
+
+
+
+
 /**
  * Register admin styles
  *
