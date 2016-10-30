@@ -55,6 +55,9 @@ function wpmg_meetup() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
+  		'show_in_rest'       => true,
+  		'rest_base'          => 'meetup',
+  		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'capability_type'     => 'post',
 	);
 	register_post_type( 'meetup', $args );
@@ -108,6 +111,9 @@ function wpmg_meetup_status() {
 		'show_in_nav_menus'          => false,
 		'show_tagcloud'              => false,
 		'capabilities'               => $capabilities,
+  		'show_in_rest'               => true,
+  		'rest_base'                  => 'status',
+  		'rest_controller_class'      => 'WP_REST_Terms_Controller',
 	);
 	register_taxonomy( 'meetup_status', array( 'meetup' ), $args );
 
@@ -423,7 +429,7 @@ function wpmg_custom_styles() {
 
 }
 
-add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles' );
+add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles', 50 );
 
 
 /**
