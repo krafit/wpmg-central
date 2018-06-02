@@ -1,6 +1,12 @@
 /* Some little hacks for our taxonomy picker */
 
-#taxonomy-meetup_status > #meetup_status-tabs{
+#taxonomy-meetup_status > #meetup_status-tabs,
+#google_map_toggle,
+#google_map_link_toggle,
+#event_organizer,
+#event_cost,
+#tribe_events_cat-tabs,
+#tribe_events_cat-adder {
     display: none !important;
 }
 #meetup_status-all, #meetup_status-all > ul {
@@ -19,4 +25,15 @@
 .wpmg input {
     width: 100%;
     margin: 6px 0 0;
+}
+
+
+.post-type-tribe_events #tagsdiv-post_tag,
+.post-type-tribe_events #tribe_events_event_options,
+.post-type-tribe_events #postcustom {
+	display: none;
+}
+
+ul#tribe_events_catchecklist {
+	margin-top: 0;
 }
