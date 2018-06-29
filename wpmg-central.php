@@ -3,7 +3,7 @@
  * Plugin Name: WP Meetups Germany - Central
  * Description: Zetrales WP Meetup Verzeichnis.
  * Author: Simon Kraft (wpFRA.de)
- * Version: 0.1.2
+ * Version: 0.1.3
  * Author URI: https://krafit.de
  * Text Domain: wpmg_central
  * Domain Path: languages
@@ -183,7 +183,7 @@ function wpmg_meta_box_callback( $post ) {
 	 * Use get_post_meta() to retrieve an existing value
 	 * from the database and use the value for the form.
 	 */
-	
+
 	$wpmg_home 			= get_post_meta( $post->ID, 'wpmg_home', true );
 	$wpmg_mail 			= get_post_meta( $post->ID, 'wpmg_mail', true );
 	$wpmg_mailinglist 	= get_post_meta( $post->ID, 'wpmg_mailinglist', true );
@@ -434,12 +434,46 @@ add_action( 'admin_enqueue_scripts', 'wpmg_custom_styles', 50 );
 
 /**
  * Remove aditional category, if the Radio Buttons for Taxonomies Plugin is active
- * 
+ *
  * @link https://wordpress.org/plugins/radio-buttons-for-taxonomies/faq/
  * @since   0.1
  */
 if (class_exists('Radio_Buttons_for_Taxonomies')) {
 	add_filter( "radio-buttons-for-taxonomies-no-term-meetup_status", "__return_FALSE" );
+}
+
+
+/**
+ * Register field wpmg_home for rest api.
+ *
+ * @since 0.1.3
+ */
+function wpmg_central_register_wmpg_home() {
+	register_rest_field(
+		'meetup',
+		'homepage',
+		[
+			'get_callback'    => 'wpmg_central_get_wpmg_home',
+			'update_callback' => null,
+			'schema'          => null,
+		]
+	);
+}
+
+add_action( 'rest_api_init', 'wpmg_central_get_wpmg_home' );
+
+/**
+ * Get value of wpmg_home.
+ *
+ * @since 0.1.3
+ *
+ * @param array $object current post
+ * @param WP_REST_Request $request current request
+ *
+ * @return mixed
+ */
+function wpmg_central_get_wpmg_home( $object, $request ) {
+	return get_post_meta( $object['id'], 'wpmg_home', true );
 }
 
 
