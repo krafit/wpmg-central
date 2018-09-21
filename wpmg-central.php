@@ -2,12 +2,12 @@
 /**
  * Plugin Name: WP Meetups Germany - Central
  * Description: Zetrales WP Meetup Verzeichnis.
- * Author: Simon Kraft (wpFRA.de)
+ * Author: Simon Kraft
  * Version: 0.1.3
- * Author URI: https://krafit.de
+ * Author URI: https://simonkraft.de
  * Text Domain: wpmg_central
  * Domain Path: languages
- * GitHub Plugin URI: https://github.com/wpFRA/wpmg-central
+ * GitHub Plugin URI: https://github.com/krafit/wpmg-central
  * GitHub Branch: master
  *
  */
