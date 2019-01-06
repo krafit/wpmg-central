@@ -3,7 +3,7 @@
  * Plugin Name: WP Meetups Germany - Central
  * Description: Zetrales WP Meetup Verzeichnis.
  * Author: Simon Kraft
- * Version: 0.1.3
+ * Version: 0.1.4
  * Author URI: https://simonkraft.de
  * Text Domain: wpmg_central
  * Domain Path: languages
