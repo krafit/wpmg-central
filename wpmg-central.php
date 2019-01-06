@@ -165,7 +165,6 @@ add_action( 'add_meta_boxes', 'wpmg_add_meta_boxes');
  *
  * wpmg_twitter - URL des Meetup Twitter Accounts
  * wpmg_facebook - URL der Meetup Facebook Seite/Gruppe
- * wpmg_gplus - URL der Meetup Google+ Seite / Community
  * wpmg_meetupcom - URL der Meetup Gruppe auf Meetup.com
  * wpmg_slack - URL des Meetup Slack-Channels auf dewp.slack.com / URL auf eines Slack-Team
  * wpmg_xing - URL der Meetup Xing-Community
@@ -191,7 +190,6 @@ function wpmg_meta_box_callback( $post ) {
 	$wpmg_wptv 			= get_post_meta( $post->ID, 'wpmg_wptv', true );
 	$wpmg_twitter 		= get_post_meta( $post->ID, 'wpmg_twitter', true );
 	$wpmg_facebook 		= get_post_meta( $post->ID, 'wpmg_facebook', true );
-	$wpmg_gplus			= get_post_meta( $post->ID, 'wpmg_gplus', true );
 	$wpmg_slack 		= get_post_meta( $post->ID, 'wpmg_slack', true );
 	$wpmg_xing 			= get_post_meta( $post->ID, 'wpmg_xing', true );
 	$wpmg_rotation 		= get_post_meta( $post->ID, 'wpmg_rotation', true );
@@ -265,16 +263,6 @@ function wpmg_meta_box_callback( $post ) {
 	echo '</label> ';
     echo '<br/>';
 	echo '<input type="text" id="wpmg_facebook" name="wpmg_facebook" value="' . esc_attr( $wpmg_facebook ) . '" size="25" />';
-	echo '</div>';
-
-	// gplus
-    echo '<div class="wpmg wpmg-gplus">';
-	echo '<label for="wpmg_gplus">';
-    echo '<span class="dashicons dashicons-googleplus"></span> ';
-	_e( 'Google+ URL', 'wpmg_central' );
-	echo '</label> ';
-    echo '<br/>';
-	echo '<input type="text" id="wpmg_gplus" name="wpmg_gplus" value="' . esc_attr( $wpmg_gplus ) . '" size="25" />';
 	echo '</div>';
 
 	// slack
@@ -355,7 +343,6 @@ function wpmg_save_meta_box_data( $post_id ) {
 	// Make sure that it is set.
 	if ( ! isset( $_POST['wpmg_twitter'] ) ||
          ! isset( $_POST['wpmg_facebook'] ) ||
-         ! isset( $_POST['wpmg_gplus'] ) ||
          ! isset( $_POST['wpmg_meetupcom'] ) ||
          ! isset( $_POST['wpmg_slack'] ) ||
          ! isset( $_POST['wpmg_xing'] ) ||
@@ -370,7 +357,6 @@ function wpmg_save_meta_box_data( $post_id ) {
 
     update_post_meta( $post_id, 'wpmg_twitter',     sanitize_text_field( $_POST['wpmg_twitter'] ) );
     update_post_meta( $post_id, 'wpmg_facebook',    sanitize_text_field( $_POST['wpmg_facebook'] ) );
-    update_post_meta( $post_id, 'wpmg_gplus',       sanitize_text_field( $_POST['wpmg_gplus'] ) );
     update_post_meta( $post_id, 'wpmg_meetupcom',   sanitize_text_field( $_POST['wpmg_meetupcom'] ) );
     update_post_meta( $post_id, 'wpmg_slack',       sanitize_text_field( $_POST['wpmg_slack'] ) );
     update_post_meta( $post_id, 'wpmg_xing',        sanitize_text_field( $_POST['wpmg_xing'] ) );
